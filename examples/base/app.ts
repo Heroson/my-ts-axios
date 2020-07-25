@@ -1,7 +1,8 @@
-/**
- * 处理 url 参数
- */
 import axios from '../../src/index'
+
+/**
+ * 处理 url 及 Params 参数
+ */
 
 // // 参数值为数组
 // axios({
@@ -73,6 +74,68 @@ import axios from '../../src/index'
 //   }
 // })
 
+/**
+ * 处理 data 数据
+ */
+
+// axios({
+//   method: 'post',
+//   url: '/base/post',
+//   data: {
+//     a: 1,
+//     b: 2
+//   }
+// })
+
+// const arr = new Int32Array([21, 31])
+
+// axios({
+//   method: 'post',
+//   url: '/base/buffer',
+//   data: arr
+// })
+
+/**
+ * 处理 headers
+ */
+
+// axios({
+//   method: 'post',
+//   url: '/base/post',
+//   data: {
+//     a: 1,
+//     b: 2
+//   }
+// })
+
+// axios({
+//   method: 'post',
+//   url: '/base/post',
+//   headers: {
+//     'content-type': 'application/json',
+//     'Accept': 'application/json, text/plain, */*'
+//   },
+//   data: {
+//     a: 1,
+//     b: 2
+//   }
+// })
+
+// const paramsString = 'q=URLUtils.searchParams&topic=api'
+// const searchParams = new URLSearchParams(paramsString)
+
+// axios({
+//   method: 'post',
+//   url: '/base/post',
+//    // 浏览器会获知到传入的是一个 URLSearchParams 参数
+//    // 并自动地标记它的 Content-Type header 为 application/x-www-form-urlencoded
+//   data: searchParams
+// })
+
+/**
+ * 处理响应数据
+ */
+
 axios({
   method: 'post',
   url: '/base/post',
@@ -80,12 +143,18 @@ axios({
     a: 1,
     b: 2
   }
+}).then((res) => {
+  console.log(res)
 })
-
-const arr = new Int32Array([21, 31])
 
 axios({
   method: 'post',
-  url: '/base/buffer',
-  data: arr
+  url: '/base/post',
+  responseType: 'json',
+  data: {
+    a: 3,
+    b: 4
+  }
+}).then((res) => {
+  console.log(res)
 })
